@@ -1,19 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-3">
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+  <p>
+    <strong>Nome do Produto:</strong>
+    <%= @product.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+  <p>
+    <strong>Descrição do Produto:</strong>
+    <%= @product.description %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <p>
+    <strong>Preço do Produto:</strong>
+    <%= @product.price %>
+  </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <p>
+    <strong>Categoria do Produto:</strong>
+    <%= @product.category.name %>
+  </p>
+
+  <hr>
+
+  <p>
+    <strong>Vendedor:</strong>
+    <%= @product.user.name %>
+  </p>
+
+  <p>
+    <strong>Telefone do Vendedor:</strong>
+    <%= @product.user.telephone %>
+  </p>
+
+  <p>
+    <strong>E-mail do Vendedor:</strong>
+    <%= @product.user.email %>
+  </p>
+
+  <hr>
+
+  <% @product.images.each do |image| %>
+    <%= image_tag (image.thumb.url) unless image.file.nil? %>
+    <hr>
+  <% end %>
+
+  <%= link_to 'Editar', edit_product_path(@product), :class => "btn btn-warning" %>
+  <%= link_to 'Voltar', products_path, :class => "btn btn-info" %>
+</div>

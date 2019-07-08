@@ -1,5 +1,10 @@
-<h1>Nova Categoria</h1>
+<div class="container-fluid">
+  <div class="col-md-6">
+    <h1>Cadastrar nova Categoria</h1>
 
-<%= render 'form', category: @category %>
+    <%= render 'form', category: @category %>
 
-<%= link_to 'Back', categories_path %>
+    <%= link_to 'Cancelar', products_path, :class => "btn btn-danger" %>
+
+  </div>
+</div>
