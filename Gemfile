@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Devise
 gem 'devise'
+# CANCANCAN
+gem 'cancancan', '~> 2.0'
 
 # Bootstrap
 gem 'jquery-rails'
