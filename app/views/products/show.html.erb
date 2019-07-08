@@ -15,35 +15,23 @@
     <%= @product.price %>
   </p>
 
+
+  <% @product.images.each do |image| %>
+     <%= image_tag (image.thumb.url) unless image.file.nil? %>
+     <hr>
+   <% end %>
+
   <p>
     <strong>Categoria do Produto:</strong>
-    <%= @product.category.name %>
+    <%= @product.category.description %>
   </p>
 
   <hr>
-
-  <p>
-    <strong>Vendedor:</strong>
-    <%= @product.user.name %>
-  </p>
-
-  <p>
-    <strong>Telefone do Vendedor:</strong>
-    <%= @product.user.telephone %>
-  </p>
-
-  <p>
-    <strong>E-mail do Vendedor:</strong>
-    <%= @product.user.email %>
-  </p>
-
-  <hr>
-
   <% @product.images.each do |image| %>
     <%= image_tag (image.thumb.url) unless image.file.nil? %>
     <hr>
   <% end %>
 
-  <%= link_to 'Editar', edit_product_path(@product), :class => "btn btn-warning" %>
-  <%= link_to 'Voltar', products_path, :class => "btn btn-info" %>
+  <%= link_to 'Editar', edit_product_path(@product), :class => "btn btn-primary" %>
+  <%= link_to 'Voltar', products_path, :class => "btn btn-primary" %>
 </div>

@@ -29,10 +29,6 @@
     </div>
   </div>
 
-
-
-
-
   <% @products.all.each do |product| %>
 
     <div class="panel panel-default">
@@ -42,11 +38,18 @@
         <p>Preço: <%= product.price %></p>
       </div>
 
+      <% product.images.each do |image| %>
+        <%= image_tag (image.thumb.url) unless image.file.nil? %>
+        <hr>
+      <% end %>
+
+
       <div class="panel-body">
         <p>Descrição: <%= product.description %></p>
         <%= link_to 'Exibir', product, :class => "btn btn-primary" %></button>
       </div>
 
   <% end %>
+
   </div>
 </div>
