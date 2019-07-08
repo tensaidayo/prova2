@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+
+  <div class="form-group">
+    <label>Descricao da Categoria</label>
+    <%= form.text_area :description, id: :category_description, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Cadastrar, class: 'btn btn-success' %>
   </div>
 <% end %>

@@ -4,29 +4,40 @@
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <label>Nome do Produto</label>
+    <%= form.text_field :title, size: "60x12", id: :product_title, class: 'form-control' %>
+
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <label>Descrição do Produto</label>
+    <%= form.text_area :description, id: :product_description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="form-group">
+    <label>Preço do Produto</label>
+    <%= form.text_field :price, id: :product_price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label>Categoria do Produto</label>
+    <%= form.select :category_id, Category.all.collect {|category| [category.description, category.id]}, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label>Fotos do Produto</label>
+    <%= form.file_field :images, multiple: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Cadastrar, class: 'btn btn-success' %>
   </div>
 <% end %>
